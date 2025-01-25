@@ -1,21 +1,18 @@
-using System.CommandLine;
 using JCNET.命令行;
+using System.CommandLine;
+using System.Management.Automation;
+
+Arguments arguments = new();
 
 if (true)
 {
 	RootCommand root_cmd = [];
 
-	Option<bool> debug_option = new("--debug", "使用此参数表示开启调试模式。");
-	root_cmd.AddOptionAndHandler(debug_option, (bool debug) =>
+	Option<string?> debug_option = new("--exe_path", "可执行文件路径。");
+	root_cmd.AddOptionAndHandler(debug_option, (string? exe_path) =>
 	{
-		if (debug)
-		{
-			Console.WriteLine("调试模式");
-		}
-		else
-		{
-			Console.WriteLine("发布模式。");
-		}
+		ArgumentNullException.ThrowIfNull(exe_path);
+		arguments.ExePath = exe_path;
 	});
 
 	int cmd_parse_result = await root_cmd.InvokeAsync(args);
@@ -25,4 +22,24 @@ if (true)
 	}
 }
 
+Console.WriteLine(arguments.ExeFullPath);
+using PowerShell ps = PowerShell.Create();
+foreach (string str in ps.Ldd(arguments.ExeFullPath))
+{
+	Console.WriteLine(str);
+}
+
 return 0;
+
+internal class Arguments
+{
+	public string ExePath { get; set; } = string.Empty;
+
+	public string ExeFullPath
+	{
+		get
+		{
+			return Path.GetFullPath(ExePath);
+		}
+	}
+}
