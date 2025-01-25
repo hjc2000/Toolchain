@@ -24,7 +24,8 @@ if (true)
 
 Console.WriteLine(arguments.ExeFullPath);
 using PowerShell ps = PowerShell.Create();
-foreach (string str in ps.Ldd(arguments.ExeFullPath))
+IEnumerable<string> ldd_results = ps.Ldd(arguments.ExeFullPath);
+foreach (string str in ldd_results)
 {
 	Console.WriteLine(str);
 }
