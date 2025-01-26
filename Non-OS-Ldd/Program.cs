@@ -14,15 +14,11 @@ if (true)
 		IsRequired = true,
 	};
 
-	root_cmd.AddOption(exe_path_option);
-
 	Option<bool> copy_dll_option = new("--copy_dll",
 		"分析完依赖后，是否将依赖的 dll 拷贝到可执行文件所在的目录。" +
-		"（不包括系统 dll 和已经在可执行文件目录中的 dll.）")
-	{
-		IsRequired = false,
-	};
+		"（不包括系统 dll 和已经在可执行文件目录中的 dll.）");
 
+	root_cmd.AddOption(exe_path_option);
 	root_cmd.AddOption(copy_dll_option);
 
 	root_cmd.SetHandler((InvocationContext context) =>
@@ -35,6 +31,13 @@ if (true)
 	if (cmd_parse_result != 0)
 	{
 		return cmd_parse_result;
+	}
+
+	if (args.Contains("-h") ||
+		args.Contains("--help") ||
+		args.Contains("?"))
+	{
+		return 0;
 	}
 }
 
