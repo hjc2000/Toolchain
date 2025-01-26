@@ -54,7 +54,7 @@ foreach (string path in arguments.Paths)
 foreach (StringPath path in full_path_list)
 {
 	Console.WriteLine(path);
-	if (path.IsDirectory)
+	if (path.IsExistingDirectory)
 	{
 		foreach (StringPath item_path in path.SearchChildItems(path, "*"))
 		{
