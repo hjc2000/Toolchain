@@ -54,9 +54,12 @@ foreach (string path in arguments.Paths)
 foreach (StringPath path in full_path_list)
 {
 	Console.WriteLine(path);
-	foreach (StringPath item_path in path.SearchChildItems(path, "*"))
+	if (path.IsDirectory)
 	{
-		Console.WriteLine(item_path);
+		foreach (StringPath item_path in path.SearchChildItems(path, "*"))
+		{
+			Console.WriteLine(item_path);
+		}
 	}
 }
 
