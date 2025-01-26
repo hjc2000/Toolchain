@@ -8,6 +8,8 @@ Arguments arguments = new();
 if (true)
 {
 	RootCommand root_cmd = [];
+	root_cmd.Description = "分析指定的可执行文件所依赖的 dll. 会自动排除 windows 系统的 dll" +
+		"和已经在指定的可执行文件所在的目录的 dll. 分析完后可以选择将上述的 dll 拷贝到可执行文件所在的目录。";
 
 	Option<string> exe_path_option = new("--exe_path", "可执行文件路径。")
 	{
@@ -35,7 +37,8 @@ if (true)
 
 	if (args.Contains("-h") ||
 		args.Contains("--help") ||
-		args.Contains("?"))
+		args.Contains("?") ||
+		args.Contains("--version"))
 	{
 		return 0;
 	}
