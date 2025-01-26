@@ -22,7 +22,7 @@ if (true)
 }
 
 Console.WriteLine(arguments.ExeFullPath);
-IEnumerable<string> ldd_results = await PowershellExtension.GetDependentDllFullPathAsync(arguments.ExeFullPath);
+IEnumerable<string> ldd_results = await PowershellExtension.GetNonOSDependentDllFullPathAsync(arguments.ExeFullPath);
 foreach (string str in ldd_results)
 {
 	Console.WriteLine(str);
