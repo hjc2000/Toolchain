@@ -24,7 +24,7 @@ if (true)
 
 Console.WriteLine(arguments.ExeFullPath);
 using PowerShell ps = PowerShell.Create();
-IEnumerable<string> ldd_results = ps.Ldd(arguments.ExeFullPath);
+IEnumerable<string> ldd_results = ps.GetDependentDllFullPath(arguments.ExeFullPath);
 foreach (string str in ldd_results)
 {
 	Console.WriteLine(str);
