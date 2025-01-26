@@ -1,6 +1,5 @@
 using JCNET.命令行;
 using System.CommandLine;
-using System.Management.Automation;
 
 Arguments arguments = new();
 
@@ -23,8 +22,7 @@ if (true)
 }
 
 Console.WriteLine(arguments.ExeFullPath);
-using PowerShell ps = PowerShell.Create();
-IEnumerable<string> ldd_results = ps.GetDependentDllFullPath(arguments.ExeFullPath);
+IEnumerable<string> ldd_results = await PowershellExtension.GetDependentDllFullPathAsync(arguments.ExeFullPath);
 foreach (string str in ldd_results)
 {
 	Console.WriteLine(str);
