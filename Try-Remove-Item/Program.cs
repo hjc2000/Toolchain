@@ -55,7 +55,7 @@ Arguments arguments = new();
 //	}
 //}
 
-FileSystemPath path = new("*/*");
+FileSystemPath path = new("*/*/*/*/*/*/*/");
 foreach (FileSystemPath item_path in path.ExpandWildcard())
 {
 	Console.WriteLine(item_path);
