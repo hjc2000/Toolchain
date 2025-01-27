@@ -1,4 +1,4 @@
-﻿using JCNET.字符串处理;
+﻿using JCNET;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 
@@ -38,27 +38,21 @@ if (true)
 	}
 }
 
-List<StringPath> full_path_list = [];
+List<FileSystemPath> full_path_list = [];
 foreach (string path in arguments.Paths)
 {
-	if (path == string.Empty)
-	{
-		full_path_list.Add(new StringPath("./").FullPath);
-	}
-	else
-	{
-		full_path_list.Add(new StringPath(path).FullPath);
-	}
+	full_path_list.Add(new FileSystemPath(path).FullPath);
 }
 
-foreach (StringPath path in full_path_list)
+foreach (FileSystemPath path in full_path_list)
 {
 	Console.WriteLine(path);
-	if (path.IsExistingDirectory)
+	if (path.IsFullPath && path.IsExistingDirectory)
 	{
-		foreach (StringPath item_path in path.SearchChildItems(path, "*"))
+		List<FileSystemPath> items = path.SearchChildItems("*");
+		foreach (FileSystemPath item in items)
 		{
-			Console.WriteLine(item_path);
+			Console.WriteLine($"\t{item}");
 		}
 	}
 }
