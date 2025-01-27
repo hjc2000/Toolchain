@@ -55,7 +55,7 @@ Arguments arguments = new();
 //	}
 //}
 
-FileSystemPath path = new("*/*/*/*/*/*/*/");
+FileSystemPath path = new("**.psd1");
 foreach (FileSystemPath item_path in path.ExpandWildcard())
 {
 	Console.WriteLine(item_path);
