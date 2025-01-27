@@ -49,13 +49,17 @@ foreach (FileSystemPath path in expand_result)
 	if (path.IsExistingFile)
 	{
 		File.Delete(path.ToString());
+		Console.WriteLine($"删除文件：{path}");
 	}
 	else if (path.IsExistingDirectory)
 	{
 		Directory.Delete(path.ToString(), true);
+		Console.WriteLine($"删除目录：{path}");
 	}
-
-	Console.WriteLine(path);
+	else
+	{
+		Console.WriteLine($"{path} 不是一个存在的项目，无法删除");
+	}
 }
 
 return 0;
