@@ -9,18 +9,18 @@ if (true)
 	RootCommand root_cmd = [];
 	root_cmd.Description = "尝试删除指定路径的目录或文件。如果不存在，则忽略该路径。";
 
-	Option<string[]> path_option = new(["--path", "--Path"],
-		"要删除的目录或文件的路径。")
+	Option<string[]> paths_option = new(["--paths", "--Paths"],
+		"要删除的目录或文件的路径。可以指定多个。")
 	{
 		IsRequired = true,
 		AllowMultipleArgumentsPerToken = true,
 	};
 
-	root_cmd.AddOption(path_option);
+	root_cmd.AddOption(paths_option);
 
 	root_cmd.SetHandler((InvocationContext context) =>
 	{
-		arguments.Paths = context.ParseResult.GetValueForOption(path_option)!;
+		arguments.Paths = context.ParseResult.GetValueForOption(paths_option)!;
 	});
 
 	int cmd_parse_result = await root_cmd.InvokeAsync(args);
