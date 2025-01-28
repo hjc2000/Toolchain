@@ -38,7 +38,7 @@ if (true)
 	}
 }
 
-List<FileSystemPath> expand_result = [];
+HashSet<FileSystemPath> expand_result = [];
 foreach (string path in arguments.Paths)
 {
 	expand_result = [.. expand_result, .. new FileSystemPath(path).ExpandWildcard()];
@@ -48,12 +48,12 @@ foreach (FileSystemPath path in expand_result)
 {
 	if (path.IsExistingFile)
 	{
-		//File.Delete(path.ToString());
+		File.Delete(path.ToString());
 		Console.WriteLine($"删除文件：{path}");
 	}
 	else if (path.IsExistingDirectory)
 	{
-		//Directory.Delete(path.ToString(), true);
+		Directory.Delete(path.ToString(), true);
 		Console.WriteLine($"删除目录：{path}");
 	}
 	else
