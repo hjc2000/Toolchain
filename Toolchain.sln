@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "non-os-ldd", "non-os-ldd\no
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "try-remove-items", "try-remove-items\try-remove-items.csproj", "{0DD3074C-8A6E-497E-B3FE-16546B86C5DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "expand-wildcard", "expand-wildcard\expand-wildcard.csproj", "{069FFDCB-96B5-49C2-8AB7-C46BC7E91869}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0DD3074C-8A6E-497E-B3FE-16546B86C5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DD3074C-8A6E-497E-B3FE-16546B86C5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DD3074C-8A6E-497E-B3FE-16546B86C5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{069FFDCB-96B5-49C2-8AB7-C46BC7E91869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{069FFDCB-96B5-49C2-8AB7-C46BC7E91869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{069FFDCB-96B5-49C2-8AB7-C46BC7E91869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{069FFDCB-96B5-49C2-8AB7-C46BC7E91869}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
