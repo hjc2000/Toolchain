@@ -57,11 +57,7 @@ foreach (string path in arguments.Paths)
 HashSet<string> header_dir_set = [];
 foreach (FileSystemPath header_file in header_files)
 {
-	string? dir = Path.GetDirectoryName(header_file.ToString());
-	if (dir is not null)
-	{
-		header_dir_set.Add(dir);
-	}
+	header_dir_set.Add(header_file.DirectoryName.ToString());
 }
 
 string cmake_list_string = string.Join(';', header_dir_set);
