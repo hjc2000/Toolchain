@@ -7,7 +7,7 @@ Arguments arguments = new();
 if (true)
 {
 	RootCommand root_cmd = [];
-	root_cmd.Description = "展开路径中的通配符。";
+	root_cmd.Description = "展开路径中的通配符，放到 cmake 列表字符串中，然后输出。";
 
 	Option<string[]> paths_option = new(["--paths", "--Paths"],
 		"要被展开通配符的路径。可以指定多个。")
