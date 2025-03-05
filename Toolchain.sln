@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "expand-wildcard-for-cmake",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "collect-header-file-dir-recurse", "collect-header-file-dir-recurse\collect-header-file-dir-recurse.csproj", "{2D340464-1E48-40F5-A1A0-FF0101D49D21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{4AF2EC2E-40F6-46F5-A57D-4DB7DB82A708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{2D340464-1E48-40F5-A1A0-FF0101D49D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D340464-1E48-40F5-A1A0-FF0101D49D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D340464-1E48-40F5-A1A0-FF0101D49D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF2EC2E-40F6-46F5-A57D-4DB7DB82A708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF2EC2E-40F6-46F5-A57D-4DB7DB82A708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF2EC2E-40F6-46F5-A57D-4DB7DB82A708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF2EC2E-40F6-46F5-A57D-4DB7DB82A708}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
