@@ -45,17 +45,10 @@ if (true)
 }
 
 string exe_dir = Path.GetDirectoryName(arguments.ExeFullPath)!.Replace('\\', '/');
-Console.WriteLine(exe_dir);
-
-IEnumerable<string> ldd_results = await PowershellExtension.GetNonOSDependentDllFullPathAsync(arguments.ExeFullPath);
-
+List<string> ldd_results = await PowershellExtension.LddExternalDllRecurseAsync(arguments.ExeFullPath);
+ldd_results = await PowershellExtension.Cygpath_GetWindowsPath_Async(ldd_results);
 foreach (string dependent_dll_full_path in ldd_results)
 {
-	if (dependent_dll_full_path.StartsWith(exe_dir))
-	{
-		continue;
-	}
-
 	if (arguments.CopyDll)
 	{
 		string dll_name = Path.GetFileName(dependent_dll_full_path);
