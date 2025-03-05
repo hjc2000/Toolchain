@@ -47,8 +47,7 @@ if (true)
 string exe_dir = Path.GetDirectoryName(arguments.ExeFullPath)!.Replace('\\', '/');
 Console.WriteLine(exe_dir);
 
-IEnumerable<string> ldd_results =
-	await PowershellExtension.GetNonOSDependentDllFullPathAsync(arguments.ExeFullPath);
+IEnumerable<string> ldd_results = await PowershellExtension.GetNonOSDependentDllFullPathAsync(arguments.ExeFullPath);
 
 foreach (string dependent_dll_full_path in ldd_results)
 {
