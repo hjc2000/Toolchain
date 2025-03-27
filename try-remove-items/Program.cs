@@ -48,6 +48,7 @@ foreach (FileSystemPath path in expand_result)
 {
 	if (path.IsExistingFile)
 	{
+		File.SetAttributes(path.ToString(), FileAttributes.Normal);
 		File.Delete(path.ToString());
 		Console.WriteLine($"删除文件：{path}");
 	}
